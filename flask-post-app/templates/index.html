@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask POST Magic</title>
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>✨ Kirim Pesan</h1>
+        <p class="subtitle">Kirim pesan ke server melalui method POST</p>
+
+        <form method="POST" class="input-group">
+            <input type="text" name="user_input" placeholder="Ketik sesuatu di sini..." required>
+            <button type="submit">Kirim!</button>
+        </form>
+
+        {% if result %}
+        <div class="result-card">
+            <h3>Hasil Pemrosesan:</h3>
+            <div class="output-box">
+                <p><strong>Teks Asli:</strong> {{ original }}</p>
+                <p><strong>Hasil (Uppercase):</strong> <span class="highlight">{{ result }}</span></p>
+                <p><strong>Jumlah Karakter:</strong> {{ count }}</p>
+            </div>
+            <a href="/" class="reset-btn">Coba Lagi</a>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
